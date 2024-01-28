@@ -1,0 +1,633 @@
+.casino {
+     top: 0;
+     left: 0;
+     height: 100vh;
+     width: 100vw;
+     z-index: 1;
+     position: fixed;
+	 background: white;
+     transition: all 1s ease;
+     transform: translateY(100%);
+}
+
+.casino #webgl {
+	top: 0;
+	left: 10%;
+	position: absolute;
+	z-index: 6;
+	width: 100vw !important;
+    height: 100vh !important;
+}
+
+#fsvs {
+     height: 100%;
+     width: 100%;
+     position: fixed;
+     top: 0;
+     left: 0;
+     overflow: hidden;
+}
+
+#fsvs-body {
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 1;
+     -webkit-backface-visibility: hidden;
+     -webkit-perspective: 1000;
+}
+
+#fsvs .elementor-location-header {
+	position: static;
+    z-index: 100;
+}
+
+#fsvs .elementor-location-header.hidden {
+	display: none;
+}
+
+.vertical-slide {
+     width: 100%;
+     height: 100% !important;
+     overflow: hidden;
+	 background-color: white;
+     -webkit-backface-visibility: hidden;
+     -webkit-perspective: 1000;
+}
+
+.height_max .elementor-container {
+	height: 100% !important;
+}
+
+/* -----------------------------------------------------
+  pagination
+ ----------------------------------------------------- */
+
+#fsvs #fsvs-pagination {
+     width: 32px;
+     height: auto;
+     padding: 8px 4px;
+     margin: 0;
+     position: fixed;
+     right: 0 !important;
+     top: 50%;
+     z-index: 10;
+     list-style-type: none;
+}
+
+#fsvs #fsvs-pagination li {
+     position: relative;
+     margin: 12px 0;
+     background: #564e49;
+     border-radius: 100%;
+     width: 12px;
+     height: 12px;
+     transition: all 0.2s ease;
+     cursor: pointer;
+}
+
+#fsvs #fsvs-pagination li:after {
+	opacity: 0;
+    content: '';
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	background: #ba964d;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    border-radius: 100%;  
+	margin: auto;
+}
+
+#fsvs #fsvs-pagination li:before {
+	opacity: 0;
+	content: attr(data-title);
+    position: absolute;
+    font-size: 12px;
+    top: -8px;
+    text-transform: uppercase;
+    right: 20px;
+	text-align: right;
+	white-space: nowrap;
+    color: #564e49;
+	visibility: hidden;
+}
+
+@media screen and (max-width: 768px) {
+	#fsvs #fsvs-pagination li:before {
+		display: none;
+	}
+}
+
+#fsvs #fsvs-pagination li.active:before {
+	opacity: 0;
+	visibility: hidden;
+}
+
+#fsvs #fsvs-pagination li:hover:before {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity .25s ease-in;
+}
+
+#fsvs #fsvs-pagination li:hover:after,
+#fsvs #fsvs-pagination li.active:after {
+	opacity: 1;
+	transition: opacity .25s ease-in;
+}
+
+
+#fsvs #fsvs-pagination li>span>span {
+     position: absolute;
+     text-decoration: none;
+     left: 0;
+     top: 0;
+     color: #000;
+     width: 100%;
+     height: 100%;
+}
+
+#fsvs #fsvs-pagination li:last-child {
+     margin-bottom: 0;
+}
+
+/* -----------------------------------------------------
+  Extras
+ ----------------------------------------------------- */
+.casino-overlay {
+     top: 0;
+     left: 0;
+     height: 100vh;
+     width: 100vw;
+     z-index: 10;
+	 opacity: 0;
+	 visibility: hidden;
+     position: absolute;
+     transition: all ease 1s;
+     transform: translateY(-40px);
+}
+
+.overlay-active {
+     opacity: 1;
+	 visibility: visible;
+     transform: translateY(0);
+}
+
+.casino-bubble {
+     width: 130px;
+     height: 130px;
+     cursor: pointer;
+     position: absolute;
+}
+
+.casino-bubble.small {
+     width: 120px;
+     height: 120px;
+}
+
+.element-resting {
+     opacity: 0;
+     transition: all ease 0.75s;
+}
+
+.element-active {
+     opacity: 1;
+     /* transform: translateY(0); */
+}
+
+.element-active.heading-2 {
+     transition-delay: .1s;
+}
+
+.element-active.heading-1 {
+     transition-delay: .2s;
+}
+
+.element-active.body-2,
+.element-active.body-1 {
+     transition-delay: .3s;
+}
+
+.element-active.casino-bubble {
+     transition-delay: .6s;
+}
+
+.casino-bubble img {
+     width: 100%;
+     height: 100%;
+     transition: all ease .2s;
+}
+
+.casino-bubble img:hover {
+     transform: scale(1.1);
+}
+
+.blur {
+     position: absolute;
+     filter: blur(20px);
+     background: white;
+	 z-index: 8;
+}
+
+.blur-right {
+     top: -25px;
+     right: 25px;
+     width: 280px;
+     height: 100%;
+     transform: translateX(20%);
+}
+
+.blur-left {
+     top: 0;
+   	 left: 11%;
+   	 width: 350px;
+     height: 100%;
+     transform: translateX(-20%);
+}
+
+.blur-bottom {
+     left: 10%;
+     bottom: 20px;
+     width: 100%;
+     height: 200px;
+     transform: translateY(20%);
+}
+
+.casino-text {
+     max-width: 315px;
+     position: absolute;
+     top: 50%;
+     left: 8%;
+     transform: translateY(-50%);
+}
+
+.body-1 {
+     margin: 0 !important;
+     color: #3a3a3a !important;
+     font-size: 2rem;
+     font-weight: 100;
+	 line-height: 1.5;
+     font-family: 'Cormorant Garamond' !important;
+	 color: #3a3a3a;
+}
+
+.body-2 {
+     margin: 0 !important;
+     color: #3a3a3a !important;
+	 line-height: 1.5;
+     font-size: 1rem;
+	 color: #3a3a3a;
+}
+
+.heading-1 {
+     margin: 0 !important;
+	margin-bottom: 20px !important;
+     font-size: 6rem;
+	 line-height: 0.75;
+     font-weight: 500;
+     font-style: italic;
+	 color: #3a3a3a !important;
+     font-family: "Cormorant Garamond"!important;
+	
+}
+
+.heading-2 {
+     margin: 0 !important;
+     font-size: 3rem;
+	 line-height: 1;
+     font-weight: 400;
+	 color: #3a3a3a !important;
+     font-family: "Cormorant Garamond"!important;
+}
+
+#sections-wrapper {
+	padding-top: 150px;
+}
+
+.scroll-down {
+     position: absolute;
+     height: 40px;
+     width: 25px;
+     bottom: 85px;
+     border-radius: 15px;
+     opacity: 0;
+     z-index: -1;
+     left: 50%;
+     transform: translate(-50%, 0);
+     transition: all ease 1.5s;
+     border: 2px solid #ba964d;
+}
+
+.scroll-down.active {
+     opacity: 1;
+     z-index: 10;
+}
+
+.scroll-down:hover {
+     cursor: pointer;
+}
+
+.scroll-down:before {
+     content: "";
+     position: absolute;
+     top: 10px;
+     left: 11px;
+     height: 8px;
+     width: 2px;
+     background: #ba964d;
+     animation: scroll 1s ease-in-out infinite alternate;
+}
+
+.scroll-down:after {
+     content: "Descoperă";
+     position: absolute;
+     bottom: -25px;
+     left: -24px;
+     font-size: 10px;
+     font-weight: bold;
+     color: #ba964d;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     width: 110px;
+}
+
+@keyframes scroll {
+     0% {
+          transform: translateY(0);
+     }
+
+     100% {
+          transform: translateY(6px);
+     }
+}
+
+/*#scene-2 .casino-bubble:nth-child(1) {*/
+   
+/*	 top: 15%;*/
+/*     right: 35%;*/
+/*}*/
+
+/*#scene-2 .casino-bubble:nth-child(2) {*/
+/*      bottom: 30%;*/
+/*     right: 30%;*/
+/*}*/
+
+/* #scene-2 .casino-bubble {
+     top: 43%;
+     left: 28%;
+} */
+
+#scene-2 .casino-bubble:nth-child(1) {
+	bottom: 30%;
+	right: 20%;
+}
+
+#scene-2 .casino-bubble:nth-child(2) {
+	top: 17%;
+	right: 27%;
+}
+
+#scene-2 .casino-bubble:nth-child(3) {
+	top: 40%;
+	left: 45%;
+}
+
+
+#scene-3 .casino-bubble:nth-child(1) {
+     bottom: 30%;
+     right: 20%;
+}
+
+#scene-3 .casino-bubble:nth-child(2) {
+     top: 17%;
+     right: 27%;
+}
+
+#scene-3 .casino-bubble:nth-child(3) {
+     top: 40%;
+     left: 45%;
+}
+
+#scene-4 .casino-bubble:nth-child(1) {
+	top: 30%;
+	right: 25%;
+}
+
+#scene-5 .casino-bubble:nth-child(1) {
+	top: 50%;
+	left: 50%;
+}
+
+#scene-6 .casino-bubble:nth-child(1) {
+	top: 60%;
+	left: 40%
+}
+
+.scene-bg {
+	background-position: -90px bottom;
+	background-repeat: no-repeat;
+	background-size: 90%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+	opacity: 0;
+	transition: all 0.75s ease;
+}
+
+.scene-4-active .scene-bg {
+	opacity: 1;
+}
+
+.scene-5-active .scene-bg {
+	opacity: 1;
+}
+
+.scene-6-active .scene-bg {
+	opacity: 1;
+}
+
+@media screen and (max-width: 1024px) {
+	.blur {
+		display: none;
+	}
+	
+	.casino #webgl {
+		left: 0;
+		top: 0;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.casino #webgl {
+		left: 0;
+		top: 10%;
+	}
+	
+	.casino-bubble {
+		width: 80px;
+		height: 80px;
+	}
+
+	.casino-bubble.small {
+		width: 80px;
+		height: 80px;
+	}
+	
+	/*#scene-2 .casino-bubble:nth-child(1) {*/
+ /*   	top: 20%;*/
+ /*   	left: 20%;*/
+	/*	bottom: unset;*/
+	/*	right: unset;*/
+	/*}*/
+
+	/*#scene-2 .casino-bubble:nth-child(2){*/
+	/*	 top: 20%;*/
+	/*	 right: 20%;*/
+	/*	 left: unset;*/
+	/*	 bottom: unset;*/
+	/*}*/
+
+	/* #scene-2 .casino-bubble {
+		top: 8%;
+    	left: calc(50% - 40px);
+		bottom: unset;
+		right: unset;
+	} */
+
+	#scene-2 .casino-bubble:nth-child(1) {
+    	top: 40%;
+    	left: 20%;
+		bottom: unset;
+		right: unset;
+	}
+
+	#scene-2 .casino-bubble:nth-child(2) {
+		 top: 40%;
+		 right: 20%;
+		 left: unset;
+		 bottom: unset;
+	}
+
+	#scene-2 .casino-bubble:nth-child(3) {
+		top: 25%;
+    	left: calc(50% - 40px);
+		bottom: unset;
+		right: unset;
+	}
+	
+	#scene-3 .casino-bubble:nth-child(1) {
+    	top: 40%;
+    	left: 20%;
+		bottom: unset;
+		right: unset;
+	}
+
+	#scene-3 .casino-bubble:nth-child(2) {
+		 top: 40%;
+		 right: 20%;
+		 left: unset;
+		 bottom: unset;
+	}
+
+	#scene-3 .casino-bubble:nth-child(3) {
+		top: 25%;
+    	left: calc(50% - 40px);
+		bottom: unset;
+		right: unset;
+	}
+
+	#scene-4 .casino-bubble:nth-child(1) {
+		top: 52%;
+		right: calc(50% - 40px);
+	}
+
+	#scene-5 .casino-bubble:nth-child(1) {
+		top: 60%;
+		left: calc(50% - 40px);
+	}
+
+	#scene-6 .casino-bubble:nth-child(1) {
+		top: 60%;
+		left: calc(50% - 40px);
+	}
+	
+	.casino-text {
+		width: 100%;
+		max-width: calc(100% - 64px);
+		position: absolute;
+		top: 32px;
+		left: 32px;
+		transform: translateY(0);
+	}
+	
+	.casino-text h6 {
+		text-align: center;
+	}
+
+	.body-1 {
+		 font-size: 1.4rem !important;
+		 text-align: center;
+	}
+
+	.body-2 {
+		 font-size: 1rem !important;
+		 text-align: center;
+	}
+
+	.heading-1 {
+		 text-align: center;
+		 font-size: 3rem !important;
+	}
+
+	.heading-2 {
+		 font-size: 2.4rem !important;
+		 text-align: center;
+	}
+	
+/* 	.blur-bottom {
+		display: block !important;
+		left: 0;
+		top: 0;
+		bottom: unset;
+		height: 250px;
+		filter: blur(15px);
+		transform: translate(-20%);
+	}
+	
+	.blur-left {
+		display: block !important;
+		bottom: 0;
+		left: 0;
+		top: unset;
+		height: 100px;
+		width: 100vw;
+		filter: blur(15px);
+		transform: translatey(25%);
+	} */
+}
+
+
+@media screen and (max-width: 480px) {
+
+	.last-slide {
+		margin-top: -100px;
+	}
+	
+	.scroll-down {
+		bottom: 55px;
+	}
+}
+
+
+@media screen and (min-width: 1200px) and (max-width: 1366px) {
+	.hide-small {
+		display: none;
+	}
+}
